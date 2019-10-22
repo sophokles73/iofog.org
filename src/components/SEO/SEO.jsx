@@ -20,29 +20,30 @@ class SEO extends Component {
       }
     ];
     return (
-      <Helmet>
-        {/* General tags */}
-        <meta name="image" content={siteLogo} />
+      <div />
+      // <Helmet>
+      //   {/* General tags */}
+      //   <meta name="image" content={siteLogo} />
 
-        {/* Schema.org tags */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
-        </script>
+      //   {/* Schema.org tags */}
+      //   <script type="application/ld+json">
+      //     {JSON.stringify(schemaOrgJSONLD)}
+      //   </script>
 
-        {/* OpenGraph tags */}
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={title} />
-        <meta property="og:image" content={siteLogo} />
-        <meta
-          property="fb:app_id"
-          content={config.siteFBAppID ? config.siteFBAppID : ''}
-        />
+      //   {/* OpenGraph tags */}
+      //   <meta property="og:url" content={url} />
+      //   <meta property="og:title" content={title} />
+      //   <meta property="og:image" content={siteLogo} />
+      //   <meta
+      //     property="fb:app_id"
+      //     content={config.siteFBAppID ? config.siteFBAppID : ''}
+      //   />
 
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:image" content={siteLogo} />
-      </Helmet>
+      //   {/* Twitter Card tags */}
+      //   <meta name="twitter:card" content="summary_large_image" />
+      //   <meta name="twitter:title" content={title} />
+      //   <meta name="twitter:image" content={siteLogo} />
+      // </Helmet>
     );
   }
 }

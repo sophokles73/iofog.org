@@ -27,7 +27,7 @@ export default class MainLayout extends Component {
       <div className={wrapperClasses}>
         <Header location={this.props.location} />
 
-        <Helmet>
+        {/* <Helmet>
           <meta name="description" content={config.siteDescription} />
           <link
             href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500"
@@ -36,7 +36,7 @@ export default class MainLayout extends Component {
           <link href={favIcon16} rel="icon" type="image/png" sizes="16x16" />
           <link href={favIcon32} rel="icon" type="image/png" sizes="32x32" />
           <link href={favIcon96} rel="icon" type="image/png" sizes="96x96" />
-        </Helmet>
+        </Helmet> */}
 
         {children}
 
