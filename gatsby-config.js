@@ -40,6 +40,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-plugin-tinacms',
+            options: {
+              plugins: ['gatsby-tinacms-git', 'gatsby-tinacms-remark']
+            }
+          },
+          {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 690

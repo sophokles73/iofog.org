@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import { remarkForm } from 'gatsby-tinacms-remark';
 import Layout from '../layout';
 import SEO from '../components/SEO/SEO';
 import config from '../../data/SiteConfig';
@@ -9,7 +10,7 @@ import './post.scss';
 import DocsSidebar from '../components/DocsSidebar/DocsSidebar';
 import Edgeworx from '../components/Egdeworx/Edgeworx';
 
-export default class PostTemplate extends React.Component {
+export class PostTemplate extends React.Component {
   findTitle(menus, activePath) {
     for (const menu of menus) {
       for (const sub of menu.subMenus) {
@@ -40,48 +41,58 @@ export default class PostTemplate extends React.Component {
     });
 
     const title = this.findTitle(activeVersion.node.menus, activePath);
-
+    // return <h1>Test</h1>
     return (
-      <Layout location={activePath}>
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
-        <SEO title={title} postPath={activePath} postNode={postNode} postSEO />
-        <div className="container-fluid">
-          <div className="row post">
-            <div className="menu-list col-12 col-lg-3">
-              <div className="row">
-                <DocsSidebar
+      // <Layout location={activePath}>
+      //   <Helmet>
+      //     <title>{title}</title>
+      //   </Helmet>
+      //   <SEO title={title} postPath={activePath} postSEO />
+      <div className="container-fluid">
+        <div className="row post">
+          <div className="menu-list col-12 col-lg-3">
+            <div className="row">
+              {/* <DocsSidebar
                   versions={versions}
                   activeVersion={activeVersion}
                   activePath={activePath}
-                />
-              </div>
+                /> */}
             </div>
-            <div className="post-container col-12 col-lg-9 bg-grey">
-              <div className="row">
-                <div className="offset-1 offset-lg-1 offset-xl-1" />
-                <div className="col-12 col-lg-10">
-                  <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-                </div>
+          </div>
+          <div className="post-container col-12 col-lg-9 bg-grey">
+            <div className="row">
+              <div className="offset-1 offset-lg-1 offset-xl-1" />
+              <div className="col-12 col-lg-10">
+                <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
               </div>
             </div>
           </div>
         </div>
-        <Edgeworx />
-      </Layout>
+      </div>
+      //   <Edgeworx />
+      // </Layout>
     );
   }
 }
+
+export default remarkForm(PostTemplate);
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
       html
       fields {
         slug
       }
+      frontmatter {
+        title
+      }
+
+      fileRelativePath
+      rawFrontmatter
+      rawMarkdownBody
     }
 
     allConfigJson {
