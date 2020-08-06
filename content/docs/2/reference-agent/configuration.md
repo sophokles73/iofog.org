@@ -42,10 +42,11 @@ Configs are located at `/etc/iofog-agent/`. There are 4 config files:
   <docker_pruning_freq>1</docker_pruning_freq>
   <available_disk_threshold>90</available_disk_threshold>
 </config>
-
+```
 
 #### config-development.xml
 
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <config>
   <access_token/>
